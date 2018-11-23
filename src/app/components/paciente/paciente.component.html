@@ -95,6 +95,14 @@
             <td>{{paciente.direccion}}</td>
             <td>
                 <a routerLink="/categorizacion/{{paciente._id}}" routerLinkActive="active"> Categorizar</a>
+                
+                    <a (click)='editPaciente(paciente)'>
+                      <i class='material-icons'>edit</i>
+                    </a>
+                    <a (click)='deletepaciente(paciente._id)'>
+                        <i class='material-icons'>delete</i>
+                      </a>
+                  
 
             </td>
           </tr>

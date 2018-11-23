@@ -24,7 +24,7 @@ export class PacienteComponent implements OnInit {
     if(form.value._id){
       this.pacienteService.putPaciente(form.value)
       .subscribe(res=>{
-        //this.resetForm(form);
+        this.resetForm(form);
         M.toast({html:'Actualizado Satisfactoriamente'});
         this.getPacientes();
       })
@@ -60,6 +60,25 @@ export class PacienteComponent implements OnInit {
   mostrarCategorizacion(_id:string){
 
     console.log(_id);
+    this
+
+  }
+
+  deletePaciente(_id: string){
+    console.log(_id);
+    if(confirm('Estas seguro')){
+      this.pacienteService.deletePaciente(_id)
+    .subscribe(res=>{
+      
+      this.getPacientes();
+    });
+    }
+    
+  }
+
+  editPaciente(paciente: Paciente){
+      console.log(paciente);
+    this.pacienteService.selectPaciente = paciente;
 
   }
 
