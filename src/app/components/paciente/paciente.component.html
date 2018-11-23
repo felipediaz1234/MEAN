@@ -1,0 +1,107 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #pacienteForm="ngForm" (ngSubmit)="addPaciente(pacienteForm)">
+              
+            <div class="row">
+              <table>
+                
+                <tbody>
+                  <tr>
+                    
+                  </tr>
+                  <tr>
+                      <td>Rut:</td>
+                      <td>
+                          <input type="text" name='_id' #_id='ngModel' [(ngModel)]='pacienteService.selectPaciente._id'>
+                        <input type='text' name='rut' #rut="ngModel" 
+                        [(ngModel)]='pacienteService.selectPaciente.rut'>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td>
+                          <input type='text' name='nombre' #nombre="ngModel"
+                          [(ngModel)]='pacienteService.selectPaciente.nombre'>
+                        </td>
+                      </tr>
+                      <tr>
+                          <td>Apellido Paterno:</td>
+                          <td>
+                              <input type='text' name='apellidoPaterno' #apellidoPaterno="ngModel"
+                              [(ngModel)]='pacienteService.selectPaciente.apellidoPaterno'>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>Apellido Materno:</td>
+                            <td>
+                                <input type='text' name='apellidoMaterno' #apellidoMaterno="ngModel"
+                                [(ngModel)]='pacienteService.selectPaciente.apellidoMaterno'>
+                            </td>
+                          </tr>
+                          <tr>
+                              <td>Fecha Nacimiento:</td>
+                              <td>
+                                  <input type='text' name='fechaNacimiento' #fechaNacimiento="ngModel"
+                                  [(ngModel)]='pacienteService.selectPaciente.fechaNacimiento'>
+                              </td>
+                            </tr>
+                            <tr>
+                                <td>Direccion:</td>
+                                <td>
+                                    <input type='text' name='direccion' #direccion="ngModel"
+                                    [(ngModel)]='pacienteService.selectPaciente.direccion'>
+                                </td>
+                              </tr>
+                        <tr>
+                          <td colspan="2">
+                            <div class='input-field col s12'>
+                                <button class='btn'>SAVE</button>
+                                <button class='btn right' (click)='resetForm(pacienteForm)'>Clean</button>
+                              </div>
+                            </td>
+                        </tr>
+                        
+                          
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table>
+        <thead>
+          <th>RUT</th>
+          <th>NOMBRE</th>
+          <th>Apellido Paterno</th>
+          <th>Apellido Materno</th>
+          <th>Fecha Nacimiento</th>
+          <th>Direccion</th>
+          <th>Categorizar</th>
+          <th>ID</th>
+        </thead>
+        <tbody>
+          <tr *ngFor='let paciente of pacienteService.paciente.pacientes'>
+            <td>{{paciente.rut}}</td>
+            <td>{{paciente.nombre}}</td>
+            <td>{{paciente.apellidoPaterno}}</td>
+            <td>{{paciente.apellidoMaterno}}</td>
+            <td>{{paciente.fechaNacimiento}}</td>
+            <td>{{paciente.direccion}}</td>
+            <td>
+                <a routerLink="/categorizacion/{{paciente._id}}" routerLinkActive="active"> Categorizar</a>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+
+    </div>
+  </div>

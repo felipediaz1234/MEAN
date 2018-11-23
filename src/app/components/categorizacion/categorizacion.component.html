@@ -1,0 +1,95 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #categorizacionForm="ngForm" (ngSubmit)="addCategorizacion(categorizacionForm)">
+              
+            <div class="row">
+              <table>
+                
+                <tbody>
+                  <tr>
+                    
+                  </tr>
+                  <tr>
+                      <td>Rut:</td>
+                      <td>
+                          
+                        <input type='text' name='rut' #rut="ngModel" 
+                        [(ngModel)]='categorizacionService.selectCategorizacion.rut'>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td>
+                          <input type='text' name='nombre' #nombre="ngModel"
+                          [(ngModel)]='categorizacionService.selectCategorizacion.nombre'>
+                        </td>
+                      </tr>
+                      <tr>
+                          <td>Apellido Paterno:</td>
+                          <td>
+                              <input type='text' name='apellidoPaterno' #apellidoPaterno="ngModel"
+                              [(ngModel)]='categorizacionService.selectCategorizacion.apellidoPaterno'>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>Diagnostico:</td>
+                            <td>
+                                <input type='text' name='apellidoPaterno' #apellidoPaterno="ngModel"
+                                [(ngModel)]='categorizacionService.selectCategorizacion.apellidoPaterno'>
+                            </td>
+                          </tr>
+                          <tr>
+                              <td>Tipo:</td>
+                              <td>
+                                  <input type='text' name='apellidoPaterno' #apellidoPaterno="ngModel"
+                                  [(ngModel)]='categorizacionService.selectCategorizacion.apellidoPaterno'>
+                              </td>
+                            </tr>
+                       
+                              
+                        <tr>
+                          <td colspan="2">
+                            <div class='input-field col s12'>
+                                <button class='btn'>SAVE</button>
+                                <button class='btn right' (click)='resetForm(pacienteForm)'>Clean</button>
+                              </div>
+                            </td>
+                        </tr>
+                        
+                          
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table>
+        <thead>
+          <th>RUT</th>
+          <th>NOMBRE</th>
+          <th>Apellido Paterno</th>
+          
+        </thead>
+        <tbody>
+          <tr *ngFor='let paciente of pacienteService.paciente.pacientes'>
+            <td>{{paciente.rut}}</td>
+            <td>{{paciente.nombre}}</td>
+            <td>{{paciente.apellidoPaterno}}</td>
+          
+            <td>
+              <a>
+                <i class='material-icons' (click)='mostrarCategorizacion(paciente._id)'>add</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
